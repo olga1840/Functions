@@ -1,7 +1,7 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
-int Add(int a, int b);  //Прототип функции (объявление функция - function declaration)
+int Add(int a, int b);  //РџСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё (РѕР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёСЏ - function declaration)
 int Sub(int a, int b);
 int Mul(int a, int b);
 int Div(int a, int b);
@@ -11,8 +11,8 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	int a, b;
-	cout << "Введите два числа: "; cin >> a >> b;
-	int c = Add(a, b);  //Использование функции (Вызов функции - Function call)
+	cout << "Р’РІРµРґРёС‚Рµ РґРІР° С‡РёСЃР»Р°: "; cin >> a >> b;
+	int c = Add(a, b);  //РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С„СѓРЅРєС†РёРё (Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё - Function call)
 	cout << a << " + " << b << " = " << c << endl;
 	cout << a << " - " << b << " = " << Sub(a, b) << endl;
 	cout << a << " * " << b << " = " << Mul(a, b) << endl;
@@ -20,20 +20,20 @@ void main()
 	cout << a << " ^ " << b << " = " << Pow(a, b) << endl;
 }
 
-int Add(int a, int b)  //Реализация функции (Определение функции - Function definition)
+int Add(int a, int b)  //Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё (РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёРё - Function definition)
 {
-	int sum = a + b;    //Addition - сложение
+	int sum = a + b;    //Addition - СЃР»РѕР¶РµРЅРёРµ
 	return sum;
 }
 int Sub(int a, int b)
 {
-	return a - b;     //Subtraction - вычитание
+	return a - b;     //Subtraction - РІС‹С‡РёС‚Р°РЅРёРµ
 }
-int Mul(int a, int b)  //Multiplication - умножение
+int Mul(int a, int b)  //Multiplication - СѓРјРЅРѕР¶РµРЅРёРµ
 {
 	return a * b;
 }
-int Div(int a, int b)  //Division - деление
+int Div(int a, int b)  //Division - РґРµР»РµРЅРёРµ
 {
 	return a / b;
 }
