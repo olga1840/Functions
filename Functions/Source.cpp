@@ -37,7 +37,7 @@ int Div(int a, int b)  //Division - деление
 {
 	return a / b;
 }
-int Pow(int a, int b)
+int Pow(int a, int b)  //Возведение в степень
 {
 	int step = 1;
 	for (int i = 0; i < b; i++)
