@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 int Search(int arr[], const int n);
@@ -15,7 +15,7 @@ void main()
 		arr[i] = rand() % 100;
 		cout << arr[i] << "\t";
 	}
-	cout << "Ïîâòîðÿþùèåñÿ ýëåìåíòû ìàññèâà: " << Search(arr, n) << endl;
+	cout << "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€ÑÑŽÑ‰Ð¸ÐµÑÑ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Search(arr, n) << endl;
 }
 
 int Search(int arr[], const int n)
@@ -40,7 +40,7 @@ int Search(int arr[], const int n)
 
 			else
 			{
-				cout << "Ïîâòîðÿþùèåñÿ çíà÷åíèÿ ñðåäè ýëåìåíòîâ ìàññèâà íå íàéäåíû" << endl;
+				cout << "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€ÑÑŽÑ‰Ð¸ÐµÑÑ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÑÑ€ÐµÐ´Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹" << endl;
 			}
 
 			
