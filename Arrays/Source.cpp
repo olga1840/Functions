@@ -2,14 +2,18 @@
 using namespace std;
 
 #define delimeter "\n-------------------------------------------\n"
+const int ROWS = 3;
+const int COLS = 4;
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, double minRand = 0, double maxRand = 100);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(float arr[], const int n, float minRand = 0, float maxRand = 100);
 void FillRand(char arr[], const int n, char minRand = 0, char maxRand = 100);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(float arr[], const int n);
 void Print(char arr[], const int n);
 
@@ -39,11 +43,11 @@ void main()
 	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
 	cout << "Среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
 	cout << "Минимальное значение из массива: " << minValueIn(arr, n) << endl;
-	cout << "Максимальное значение из массива: " << maxValueIn(arr, n) << endl; 
+	cout << "Максимальное значение из массива: " << maxValueIn(arr, n) << endl;
 	Sort(arr, n);
 	Print(arr, n);
 	UniqueRand(arr, n);
-	
+
 	int number_of_shifts;
 	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
 	shiftLeft(arr, n, number_of_shifts);
@@ -53,15 +57,19 @@ void main()
 
 	cout << delimeter << endl;
 
-	/*const int SIZE = 8;
+	const int SIZE = 8;
 	double brr[SIZE];
 	FillRand(brr, SIZE);
-	Print(brr, SIZE);*/
+	Print(brr, SIZE);
 	/*cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
 	cout << "Среднее арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 	cout << "Минимальное значение из массива: " << minValueIn(brr, SIZE) << endl;
 	cout << "Максимальное значение из массива: " << maxValueIn(brr, SIZE) << endl;*/
-	}
+
+	int i_arr_2[ROWS][COLS];
+	FillRand(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
+}
 	
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
@@ -116,6 +124,16 @@ void FillRand(float arr[], const int n, float minRand, float maxRand)
 		arr[i] /= 100;
 	}
 }
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
 
 void Print(int arr[], const int n)
 {
@@ -125,6 +143,18 @@ void Print(int arr[], const int n)
 		cout << arr[i] << "\t";
 	}
 		cout << endl;
+}
+
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << "\t";
+		}
+		cout << endl;
+	}
 }
 
 void Print(double arr[], const int n)
