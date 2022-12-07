@@ -14,7 +14,6 @@ void FillRand(float crr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(char drr[], const int n, char minRand = 0, char maxRand = 100);
 void FillRand(char drr[ROWS][COLS], const int ROWS, const int COLS);
 
-
 void Print(int arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(double brr[], const int n);
@@ -33,8 +32,8 @@ float Sum(float crr[ROWS][COLS], const int ROWS, const int COLS);
 char Sum(char drr[], const int n);
 char Sum(char drr[ROWS][COLS], const int ROWS, const int COLS);
 
-int Avg(int arr[], const int n);
-int Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double Avg(int arr[], const int n);
+double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(double brr[], const int n);
 double Avg(double brr[ROWS][COLS], const int ROWS, const int COLS);
 float Avg(float crr[], const int n);
@@ -102,7 +101,7 @@ void main()
 	setlocale(LC_ALL, "");
 	const int n = 10;
 	int arr[n] = {};
-
+	cout << "INT:\n";
 	FillRand(arr, n, 0, 100);
 	Print(arr, n);
 	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
@@ -120,7 +119,7 @@ void main()
 	shiftRight(arr, n, n - number_of_shifts);
 	Print(arr, n);
 
-	
+	cout << "DOUBLE:\n";
 	const int SIZE = 8;
 	double brr[SIZE];
 	FillRand(brr, SIZE);
@@ -129,10 +128,12 @@ void main()
 	cout << "Среднее арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 	cout << "Минимальное значение из массива: " << minValueIn(brr, SIZE) << endl;
 	cout << "Максимальное значение из массива: " << maxValueIn(brr, SIZE) << endl;
-	Sort(brr, n);
-	Print(brr, n);
-	UniqueRand(brr, n);
+	Sort(brr, SIZE);
+	Print(brr, SIZE);
+	UniqueRand(brr, SIZE);
+	cout << delimeter << endl;
 
+	cout << "FLOAT:\n";
 	float crr[n] = {};
 	FillRand(crr, n, 0, 100);
 	Print(crr, n);
@@ -144,6 +145,7 @@ void main()
 	Print(crr, n);
 	UniqueRand(crr, n);
 
+	cout << "CHAR:\n";
 	char drr[n] = {};
 	FillRand(drr, n, 0, 100);
 	Print(arr, n);
@@ -154,7 +156,7 @@ void main()
 	Sort(drr, n);
 	UniqueRand(drr, n);
 
-
+	cout << "INT_2:\n";
 	int i_arr_2[ROWS][COLS];
 	FillRand(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
@@ -164,16 +166,18 @@ void main()
 	cout << "Максимальное значение из массива: " << maxValueIn(i_arr_2, ROWS, COLS) << endl;
 	shiftLeft(i_arr_2, ROWS, COLS, number_of_shifts);
 	shiftRight(i_arr_2, ROWS, COLS, number_of_shifts);
-	Sort(i_arr_2, ROWS, COLS);
-	UniqueRand(i_arr_2, ROWS, COLS);
+	//Sort(i_arr_2, ROWS, COLS);
+	//UniqueRand(i_arr_2, ROWS, COLS);
 
 
-	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
-	shiftLeft(i_arr_2, ROWS, COLS, number_of_shifts);
-	Print(i_arr_2, ROWS, COLS);
-	shiftRight(i_arr_2, ROWS, COLS, n - number_of_shifts);
-	Print(i_arr_2, ROWS, COLS);
+	//cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
+	//shiftLeft(i_arr_2, ROWS, COLS, number_of_shifts);
+	//Print(i_arr_2, ROWS, COLS);
+	//shiftRight(i_arr_2, ROWS, COLS, n - number_of_shifts);
+	//Print(i_arr_2, ROWS, COLS);
 
+#ifdef DEBUG
+	cout << "DOUBLE_2:\n";
 	double i_brr_2[ROWS][COLS];
 	FillRand(i_brr_2, ROWS, COLS);
 	Print(i_brr_2, ROWS, COLS);
@@ -186,6 +190,7 @@ void main()
 	Sort(i_brr_2, ROWS, COLS);
 	UniqueRand(i_brr_2, ROWS, COLS);
 
+	cout << "FLOAT_2:\n";
 	float i_crr_2[ROWS][COLS];
 	FillRand(i_crr_2, ROWS, COLS);
 	Print(i_crr_2, ROWS, COLS);
@@ -198,6 +203,7 @@ void main()
 	Sort(i_crr_2, ROWS, COLS);
 	UniqueRand(i_crr_2, ROWS, COLS);
 
+	cout << "CHAR_2:\n";
 	char i_drr_2[ROWS][COLS];
 	FillRand(i_drr_2, ROWS, COLS);
 	Print(i_drr_2, ROWS, COLS);
@@ -209,6 +215,8 @@ void main()
 	shiftRight(i_drr_2, ROWS, COLS, number_of_shifts);
 	Sort(i_drr_2, ROWS, COLS);
 	UniqueRand(i_drr_2, ROWS, COLS);
+#endif // DEBUG
+
 
 }
 	
@@ -280,8 +288,7 @@ void FillRand(char drr[], const int n, char minRand, char maxRand)
 	//заполнение случайными числами
 	for (int i = 0; i < n; i++)
 	{
-		drr[i] = rand() % int((maxRand - minRand) + minRand);
-		drr[i] /= 100;
+		drr[i] = rand();
 	}
 }
 
@@ -440,7 +447,7 @@ int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			sum += arr[ROWS][COLS];
+			sum += arr[i][j];
 		}
 	}
 	return sum;
@@ -468,7 +475,7 @@ double Sum(double brr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			sum += brr[ROWS][COLS];
+			sum += brr[i][j];
 		}
 	}
 	return sum;
@@ -495,7 +502,7 @@ float Sum(float crr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			sum += crr[ROWS][COLS];
+			sum += crr[i][j];
 		}
 	}
 	return sum;
@@ -522,7 +529,7 @@ char Sum(char drr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			sum += drr[ROWS][COLS];
+			sum += drr[i][j];
 		}
 	}
 	return sum;
@@ -530,20 +537,16 @@ char Sum(char drr[ROWS][COLS], const int ROWS, const int COLS)
 }
 
 
-int Avg(int arr[], const int n)
+double Avg(int arr[], const int n)
 {
 	//возвращает среднее арифметическое из массива
-	return (int)Sum(arr, n) / n;
+	return (double)Sum(arr, n) / n;
 }
-
-
-int Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
+double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	//возвращает среднее арифметическое из массива
-	return (int)Sum(arr, ROWS, COLS) / ROWS, COLS;
+	return (double)Sum(arr, ROWS, COLS) / ROWS, COLS;
 }
-
-
 double Avg(double brr[], const int n)
 {
 	//возвращает среднее арифметическое из массива
@@ -814,10 +817,11 @@ void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_o
 		{
 			for (int j = 0; j < COLS; j++)
 			{
-				arr[i][j] = arr[i + 1][j + 1];
+				arr[i][j] = arr[i][j + 1];
 			}
-			arr[ROWS - 1][COLS - 1] = buffer;
+			arr[i][COLS - 1] = arr[i + 1][0];
 		}
+			arr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
 
@@ -876,10 +880,11 @@ void shiftLeft(float crr[ROWS][COLS], const int ROWS, const int COLS, int number
 		{
 			for (int j = 0; j < COLS; j++)
 			{
-				crr[i][j] = crr[i + 1][j + 1];
+				crr[i][j] = crr[i][j + 1];
 			}
-			crr[ROWS - 1][COLS - 1] = buffer;
+			crr[i][COLS - 1] = crr[i + 1][0];
 		}
+		crr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
 
@@ -923,7 +928,9 @@ void shiftRight(int arr[], const int n, int number_of_shifts)
 void shiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
 	//выполняет циклический сдвиг массива вправо
-	shiftLeft(arr, ROWS, ROWS - number_of_shifts, COLS - number_of_shifts);
+	number_of_shifts = number_of_shifts % (ROWS * COLS);
+	number_of_shifts = ROWS * COLS - number_of_shifts;
+	shiftLeft(arr, ROWS, ROWS, COLS);
 }
 
 void shiftRight(double brr[], const int n, int number_of_shifts)
@@ -977,7 +984,6 @@ void Sort(int arr[], const int n)
 				arr[i] = arr[j];
 				arr[j] = buffer;
 			}
-
 		}
 
 	}
@@ -990,12 +996,12 @@ void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			if (arr[i][j] < arr[i+1][j+1])
+			/*if (arr[i][j] < arr[i+1][j+1])
 			{
 				int buffer = arr[i][j];
 				arr[i+1][j+1] = arr[i][j];
 				arr[i][j] = buffer;
-			}
+			}*/
 		}
 	}
 	cout << delimeter << endl;
@@ -1003,20 +1009,18 @@ void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 
 void Sort(double brr[], const int n)
 {
-
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = i + 1; j < n; j++)
 		{
-			if (brr[j] < brr[i])
+			/*if (brr[j] < brr[i])
 			{
 				double buffer = brr[i];
 				brr[i] = brr[j];
 				brr[j] = buffer;
-			}
+			}*/
 		}
 	}
-	cout << delimeter << endl;
 }
 
 void Sort(double brr[ROWS][COLS], const int ROWS, const int COLS)
@@ -1025,12 +1029,12 @@ void Sort(double brr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			if (brr[i][j] < brr[i + 1][j + 1])
+			/*if (brr[i][j] < brr[i + 1][j + 1])
 			{
 				double buffer = brr[i][j];
 				brr[i + 1][j + 1] = brr[i][j];
 				brr[i][j] = buffer;
-			}
+			}*/
 		}
 	}
 	cout << delimeter << endl;
@@ -1042,12 +1046,12 @@ void Sort(float crr[], const int n)
 	{
 		for (int j = i + 1; j < n; j++)
 		{
-			if (crr[j] < crr[i])
+			/*if (crr[j] < crr[i])
 			{
 				float buffer = crr[i];
 				crr[i] = crr[j];
 				crr[j] = buffer;
-			}
+			}*/
 		}
 	}
 	cout << delimeter << endl;
@@ -1059,12 +1063,12 @@ void Sort(float crr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			if (crr[i][j] < crr[i + 1][j + 1])
+			/*if (crr[i][j] < crr[i + 1][j + 1])
 			{
 				float buffer = crr[i][j];
 				crr[i + 1][j + 1] = crr[i][j];
 				crr[i][j] = buffer;
-			}
+			}*/
 		}
 	}
 	cout << delimeter << endl;
@@ -1093,12 +1097,12 @@ void Sort(char drr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			if (drr[i][j] < drr[i + 1][j + 1])
+			/*if (drr[i][j] < drr[i + 1][j + 1])
 			{
 				char buffer = drr[i][j];
 				drr[i + 1][j + 1] = drr[i][j];
 				drr[i][j] = buffer;
-			}
+			}*/
 		}
 	}
 	cout << delimeter << endl;
@@ -1149,7 +1153,6 @@ void UniqueRand(double brr[], const int n)
 			}
 		}
 	}
-	cout << endl;
 }
 
 void UniqueRand(double brr[ROWS][COLS], const int ROWS, const int COLS)
