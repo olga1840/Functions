@@ -914,8 +914,9 @@ void shiftLeft(char drr[ROWS][COLS], const int ROWS, const int COLS, int number_
 			{
 				drr[i][j] = drr[i + 1][j + 1];
 			}
-			drr[ROWS - 1][COLS - 1] = buffer;
+			drr[i][COLS - 1] = drr[i + 1][0];
 		}
+		drr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
 
@@ -942,7 +943,9 @@ void shiftRight(double brr[], const int n, int number_of_shifts)
 void shiftRight(double brr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
 	//выполняет циклический сдвиг массива вправо
-	shiftLeft(brr, ROWS, ROWS - number_of_shifts, COLS - number_of_shifts);
+	number_of_shifts = number_of_shifts % (ROWS * COLS);
+	number_of_shifts = ROWS * COLS - number_of_shifts;
+	shiftLeft(brr, ROWS, ROWS, COLS);
 }
 
 void shiftRight(float crr[], const int n, int number_of_shifts)
@@ -954,7 +957,9 @@ void shiftRight(float crr[], const int n, int number_of_shifts)
 void shiftRight(float crr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
 	//выполняет циклический сдвиг массива вправо
-	shiftLeft(crr, ROWS, ROWS - number_of_shifts, COLS - number_of_shifts);
+	number_of_shifts = number_of_shifts % (ROWS * COLS);
+	number_of_shifts = ROWS * COLS - number_of_shifts;
+	shiftLeft(crr, ROWS, ROWS, COLS);
 }
 
 void shiftRight(char drr[], const int n, int number_of_shifts)
@@ -966,7 +971,9 @@ void shiftRight(char drr[], const int n, int number_of_shifts)
 void shiftRight(char drr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
 	//выполняет циклический сдвиг массива вправо
-	shiftLeft(drr, ROWS, ROWS - number_of_shifts, COLS - number_of_shifts);
+	number_of_shifts = number_of_shifts % (ROWS * COLS);
+	number_of_shifts = ROWS * COLS - number_of_shifts;
+	shiftLeft(drr, ROWS, ROWS, COLS);
 }
 
 void Sort(int arr[], const int n)
