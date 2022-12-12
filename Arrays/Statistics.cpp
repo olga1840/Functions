@@ -1,0 +1,72 @@
+#include"Statistics.h"
+#include"constants.h"
+
+template<typename T>T Sum(T arr[], const int n)
+{	//возвращает сумму элементов массива
+	T sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}	return sum;
+	cout << endl;
+}
+template<typename T>T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{	//возвращает сумму элементов массива
+	T sum = 0;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			sum += arr[i][j];
+		}
+	}	return sum;
+	cout << endl;
+}
+template<typename T>double Avg(T arr[], const int n)
+{	//возвращает среднее арифметическое из массива
+	return (double)Sum(arr, n) / n;
+}
+template<typename T>double Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	//возвращает среднее арифметическое из массива
+	return (double)Sum(arr, ROWS, COLS) / ROWS, COLS;
+}
+template<typename T>T minValueIn(T arr[], const int n)
+{	//возвращает минимальное значение из массива
+	T min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min) min = arr[i];
+	}
+	return min;
+}
+template<typename T>T minValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{	//возвращает минимальное значение из массива
+	T min = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] < min) min = arr[i][j];
+		}	return min;
+	}
+}
+template<typename T>T maxValueIn(T arr[], const int n)
+{	//возвращает максимальное значение из массива
+	T max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > max) max = arr[i];
+	}	return max;
+}
+template<typename T>T maxValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{	//возвращает максимальное значение из массива
+	T max = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] > max) max = arr[i][j];
+		} return max;
+	}
+}
