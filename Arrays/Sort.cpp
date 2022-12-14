@@ -27,5 +27,6 @@ template<typename T>void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS)
 				arr[i][j] = buffer;
 			}*/
 		}
-	}	cout << delimeter << endl;
+	}	
+	cout << delimeter << endl;
 }

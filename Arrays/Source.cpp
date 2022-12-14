@@ -2,10 +2,15 @@
 #include"constants.h"
 #include"FillRand.h"
 #include"Print.h"
+#include"Print.cpp"
 #include"Shift.h"
+#include"Shift.cpp"
 #include"Statistics.h"
+#include"Statistics.cpp"
 #include"Sort.h"
+#include"Sort.cpp"
 #include"UniqueRand.h"
+#include"UniqueRand.cpp"
 
 void main()
 {

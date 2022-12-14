@@ -12,7 +12,7 @@ template<typename T>void UniqueRand(T arr[], const int n)
 				return Print(arr, n);
 			}
 		}
-	}	cout << endl;
+	}	
 }
 template<typename T>void UniqueRand(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
@@ -25,5 +25,5 @@ template<typename T>void UniqueRand(T arr[ROWS][COLS], const int ROWS, const int
 				return Print(arr, ROWS, COLS);
 			}
 		}
-	}	cout << endl;
+	}
 }

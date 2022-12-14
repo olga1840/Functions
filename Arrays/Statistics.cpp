@@ -8,7 +8,6 @@ template<typename T>T Sum(T arr[], const int n)
 	{
 		sum += arr[i];
 	}	return sum;
-	cout << endl;
 }
 template<typename T>T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {	//возвращает сумму элементов массива
@@ -20,7 +19,6 @@ template<typename T>T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
 			sum += arr[i][j];
 		}
 	}	return sum;
-	cout << endl;
 }
 template<typename T>double Avg(T arr[], const int n)
 {	//возвращает среднее арифметическое из массива
